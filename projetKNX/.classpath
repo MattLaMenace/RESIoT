@@ -1,80 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-13">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-13">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/calimero-core-2.4-rc2.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/commons-lang3-3.8.1.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-darwin-x86-64.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-linux-aarch64.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-linux-arm.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-linux-x86.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-linux-x86-64.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-win32-x86.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-win32-x86-64.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/slf4j-api-1.8.0-beta2.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/stax-api-1.0-2.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/usb4java-1.3.0.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/usb4java-javax-1.3.0.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/usb-api-1.0.2.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/calimero-core-2.4-rc2.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/commons-lang3-3.8.1.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-darwin-x86-64.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-linux-aarch64.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-linux-arm.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-linux-x86-64.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-linux-x86.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-win32-x86-64.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/libusb4java-1.3.0-win32-x86.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/slf4j-api-1.8.0-beta2.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/stax-api-1.0-2.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/usb-api-1.0.2.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/usb4java-1.3.0.jar"/>
+	<classpathentry kind="lib" path="D:/Cours/ESIR2/RESIoT/Calimero/usb4java-javax-1.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
