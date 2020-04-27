@@ -21,7 +21,7 @@ import tuwien.auto.calimero.process.ProcessCommunicatorImpl;
 public class MyThread extends Thread {
 
 	// vitesse du chenillard
-	private int vitesse = 1000;
+	private int vitesse = 700;
 
 	// boolean qui définit si on continue le thread ou pas
 	private boolean go = true;
@@ -37,60 +37,36 @@ public class MyThread extends Thread {
 	}
 
 	public void run() {
-		//Tant que l'on veut que notre Thread tourne
+		// Tant que l'on veut que notre Thread tourne
 		while (go) {
-		//On parcours le tableau d'actions pour savoir quoi effectuer
+			// On parcours le tableau d'actions pour savoir quoi effectuer
 			for (Integer action : actions) {
 				switch (action) {
 				case 1:
-					//Si le tableau est non vide, on éteind les leds avant de continuer
-					if (!actions.isEmpty()) {
-						try {
-							eteindre();
-							chenillardV1();
-						} catch (KNXTimeoutException | KNXLinkClosedException | KNXFormatException
-								| InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					} else {
-						try {
-					//On réalise un chenillard
-							chenillardV1();
-						} catch (KNXTimeoutException | KNXLinkClosedException | KNXFormatException
-								| InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+					try {
+						chenillardV1();
+					} catch (KNXTimeoutException | KNXLinkClosedException | KNXFormatException
+							| InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
+
 					break;
 
 				case 2:
-					//Si le tableau est non vide, on éteind les leds avant de continuer
-					if (!actions.isEmpty()) {
-						try {
-							eteindre();
-							chenillardV2();
-						} catch (KNXTimeoutException | KNXLinkClosedException | KNXFormatException
-								| InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-					} else {
-						try {
-					//On réalise le chenillard dans l'autre sens 
-							chenillardV2();
-						} catch (KNXTimeoutException | KNXLinkClosedException | KNXFormatException
-								| InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+					try {
+						chenillardV2();
+					} catch (KNXTimeoutException | KNXLinkClosedException | KNXFormatException
+							| InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
+
 					break;
 
 				case 3:
 					try {
-						//On éteind les leds
+						// On éteind les leds
 						eteindre();
 					} catch (KNXTimeoutException | KNXLinkClosedException | KNXFormatException e) {
 						// TODO Auto-generated catch block
@@ -99,7 +75,7 @@ public class MyThread extends Thread {
 					break;
 
 				case 4:
-					//On modifie la vitesse du chenillard
+					// On modifie la vitesse du chenillard
 					vitesse -= 100;
 					try {
 
@@ -116,13 +92,12 @@ public class MyThread extends Thread {
 		}
 	}
 
-	//On ajoute une action au tableau
+	// On ajoute une action au tableau
 	public void addAction(int commande) {
 		actions.add(commande);
 	}
 
-
-	//On arrête le thread et réinitialise le tableau
+	// On arrête le thread et réinitialise le tableau
 	public void myStop() {
 		actions = new ArrayList<Integer>();
 		go = false;
@@ -130,36 +105,85 @@ public class MyThread extends Thread {
 
 	public void chenillardV1()
 			throws KNXTimeoutException, KNXLinkClosedException, KNXFormatException, InterruptedException {
-		pc.write(new GroupAddress("0/0/1"), true);
+		// Je test si on doit continuer avant chaque action, sinon j'éteind pour laisser
+		// le nouveau thread
+		if (go) {
+			pc.write(new GroupAddress("0/0/1"), true);
+		} else {
+			pc.write(new GroupAddress("0/0/1"), false);
+		}
 		Thread.sleep(vitesse);
-		pc.write(new GroupAddress("0/0/1"), false);
-		pc.write(new GroupAddress("0/0/2"), true);
+		if (go) {
+			pc.write(new GroupAddress("0/0/1"), false);
+			pc.write(new GroupAddress("0/0/2"), true);
+		} else {
+			pc.write(new GroupAddress("0/0/1"), false);
+			pc.write(new GroupAddress("0/0/2"), false);
+		}
 		Thread.sleep(vitesse);
-		pc.write(new GroupAddress("0/0/2"), false);
-		pc.write(new GroupAddress("0/0/3"), true);
+		if (go) {
+			pc.write(new GroupAddress("0/0/2"), false);
+			pc.write(new GroupAddress("0/0/3"), true);
+		} else {
+			pc.write(new GroupAddress("0/0/2"), false);
+			pc.write(new GroupAddress("0/0/3"), false);
+		}
 		Thread.sleep(vitesse);
-		pc.write(new GroupAddress("0/0/3"), false);
-		pc.write(new GroupAddress("0/0/4"), true);
+		if (go) {
+			pc.write(new GroupAddress("0/0/3"), false);
+			pc.write(new GroupAddress("0/0/4"), true);
+		} else {
+			pc.write(new GroupAddress("0/0/3"), false);
+			pc.write(new GroupAddress("0/0/4"), false);
+		}
 		Thread.sleep(vitesse);
-		pc.write(new GroupAddress("0/0/4"), false);
-		Thread.sleep(vitesse);
+		if (go) {
+			pc.write(new GroupAddress("0/0/4"), false);
+		} else {
+			pc.write(new GroupAddress("0/0/4"), false);
+		}
 	}
 
 	public void chenillardV2()
 			throws KNXTimeoutException, KNXLinkClosedException, KNXFormatException, InterruptedException {
-		pc.write(new GroupAddress("0/0/4"), true);
+		if (go) {
+			pc.write(new GroupAddress("0/0/4"), true);
+		} else {
+			pc.write(new GroupAddress("0/0/4"), false);
+		}
 		Thread.sleep(vitesse);
-		pc.write(new GroupAddress("0/0/4"), false);
-		pc.write(new GroupAddress("0/0/3"), true);
+
+		if (go) {
+			pc.write(new GroupAddress("0/0/4"), false);
+			pc.write(new GroupAddress("0/0/3"), true);
+		} else {
+			pc.write(new GroupAddress("0/0/3"), false);
+			pc.write(new GroupAddress("0/0/4"), false);
+		}
 		Thread.sleep(vitesse);
-		pc.write(new GroupAddress("0/0/3"), false);
-		pc.write(new GroupAddress("0/0/2"), true);
+
+		if (go) {
+			pc.write(new GroupAddress("0/0/3"), false);
+			pc.write(new GroupAddress("0/0/2"), true);
+		} else {
+			pc.write(new GroupAddress("0/0/2"), false);
+			pc.write(new GroupAddress("0/0/3"), false);
+		}
 		Thread.sleep(vitesse);
-		pc.write(new GroupAddress("0/0/2"), false);
-		pc.write(new GroupAddress("0/0/1"), true);
+		if (go) {
+			pc.write(new GroupAddress("0/0/2"), false);
+			pc.write(new GroupAddress("0/0/1"), true);
+		} else {
+			pc.write(new GroupAddress("0/0/2"), false);
+			pc.write(new GroupAddress("0/0/1"), false);
+		}
 		Thread.sleep(vitesse);
-		pc.write(new GroupAddress("0/0/1"), false);
-		Thread.sleep(vitesse);
+
+		if (go) {
+			pc.write(new GroupAddress("0/0/1"), false);
+		} else {
+			pc.write(new GroupAddress("0/0/1"), false);
+		}
 	}
 
 	public void eteindre() throws KNXTimeoutException, KNXLinkClosedException, KNXFormatException {

@@ -3,6 +3,7 @@ package projetKNX;
 import java.lang.module.ResolutionException;
 import java.net.InetSocketAddress;
 
+
 import tuwien.auto.calimero.CloseEvent;
 import tuwien.auto.calimero.FrameEvent;
 import tuwien.auto.calimero.GroupAddress;
@@ -19,11 +20,10 @@ import tuwien.auto.calimero.process.ProcessCommunicatorImpl;
 
 public class Connection {
 
-	public InetSocketAddress localIP = new InetSocketAddress("192.168.1.104", 0);
+	public InetSocketAddress localIP = new InetSocketAddress("192.168.1.101", 0);
 	public InetSocketAddress destIP = new InetSocketAddress("192.168.1.202", 3671);
 	public ProcessCommunicator pc;
 	public KNXNetworkLinkIP netLinkIp;
-	public boolean stop = false;
 	public MyThread m;
 
 	public Connection() throws KNXException, InterruptedException, ResolutionException {
@@ -62,6 +62,14 @@ public class Connection {
 					m=new MyThread(pc);
 					m.addAction(3);	
 					m.start();
+					try {
+						Thread.sleep(1000);
+						
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
 
 				}
 				
