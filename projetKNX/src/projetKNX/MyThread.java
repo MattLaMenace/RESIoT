@@ -78,8 +78,10 @@ public class MyThread extends Thread {
 					// On modifie la vitesse du chenillard
 					vitesse -= 100;
 					try {
-
-						chenillardV1();
+						if(vitesse >= 50) {
+							chenillardV1();
+						}
+						else eteindre();
 
 					} catch (KNXTimeoutException | KNXLinkClosedException | KNXFormatException
 							| InterruptedException e) {
