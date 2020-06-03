@@ -1,28 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Chenillard</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900" >
 	<link rel="stylesheet" href="./style.css" >
-
+<th><Font size="10">Interface graphique du chenillard Connect&eacute;e</Font></th>
 </head>
 <body>
-<button type="button" class="btn btn-secondary btn-lg"> <a href="http://localhost:8080/chenillard/chenillardv1"> v1 </a></button>
-<button type="button" class="btn btn-secondary btn-lg"> <a href="http://localhost:8080/chenillard/chenillardv2"> v2 </a></button>
-<button type="button" class="btn btn-secondary btn-lg"> <a href="http://localhost:8080/chenillard/chenillardv3"> v3 </a></button>
-<button type="button" class="btn btn-secondary btn-lg"> <a href="http://localhost:8080/chenillard/chenillardv4"> v4 </a></button>
-<br></br>
-<button type="button" class="btn btn-secondary btn-lg"> <a href="http://localhost:8080/chenillard//vitesseUP"> + </a></button>
-<button type="button" class="btn btn-secondary btn-lg"> <a href="http://localhost:8080/chenillard//vitesseDOWN"> - </a></button>
-<button type="button" class="btn btn-secondary btn-lg"> <a href="http://localhost:8080/chenillard/eteindre"> eteindre </a></button>
-<button type="button" class="btn btn-secondary btn-lg"> <a href="http://localhost:8080/chenillard/logOut"> Déconnexion </a></button>
-<br></br>
+	
+<table>
+	<tbody>
 
-<button style="--content: 'Hover me!';">
-  <div class="left"></div>
-    Hover me!
-  <div class="right"></div>
-</button>
+			
+				<th>Vous pouvez ici, modifier les r&eacute;glages du chenillard !</th>
+
+				<button type="button" class="btn btn-outline-secondary" style="color:white"> <a href="http://localhost:8080/chenillard/logOut"> D&eacute;connexion </a></button> </td>
+			
+
+
+			<tr>
+	<td>&eacute;tat du chenillard</td>
+<td>
+<button type="button" class="btn btn-outline-primary" style="color:white"> <a href="http://localhost:8080/chenillard/allumer"> Allumer </a></button> </td>
+	<td>
+<button type="button" class="btn btn-outline-dark"> <a href="http://localhost:8080/chenillard/eteindre"> &eacute;teindre </a></button> </td>
+<td>
+</tr>
+
+<tr>
+<td>Vitesse du chenillard</td>
+<td>
+<button type="button" class="btn btn-outline-success"> <a href="http://localhost:8080/chenillard//vitesseUP"> + </a></button> </td>
+<td>
+<button type="button" class="btn btn-outline-danger"> <a href="http://localhost:8080/chenillard//vitesseDOWN"> - </a></button> </td>
+</tr>
+<tr></tr>
+
+			<tr>
+				<td>Versions du chenillard</td>
+			<td> <button type="button" class="btn btn-outline-primary" > <a href="http://localhost:8080/chenillard/chenillardv1"> v1 </a></button> </td>
+<td>
+<button type="button" class="btn btn-outline-warning"> <a href="http://localhost:8080/chenillard/chenillardv2"> v2 </a></button></td>
+</tr>
+<tr>
+	<td></td>
+<td>
+<button type="button" class="btn btn-outline-dark"> <a href="http://localhost:8080/chenillard/chenillardv3"> v3 </a></button></td>
+<td>
+<button type="button" class="btn btn-outline-info"> <a href="http://localhost:8080/chenillard/chenillardv4"> v4 </a></button></td>
+<br></br>
+</tr>
+<tr>
+</tr>
+
+
+
+</tbody>
+</table>
 </body>
 </html>

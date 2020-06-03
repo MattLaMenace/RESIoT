@@ -65,6 +65,13 @@ public class EntryPoint {
 		thread.chenillardV4();
 	}
 	
+	@GET
+	@Path("/allumer")
+	@Produces(MediaType.TEXT_HTML)
+	public void eteindre() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
+		thread.myStop();
+		thread.allumer();
+	}
 	
 	
 	@GET

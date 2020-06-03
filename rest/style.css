@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');
+/*@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900');
 
 :root {
   --text-color: hsla(210, 50%, 85%, 1);
@@ -93,8 +93,9 @@ button .right:hover::after {
 button .left:hover ~ .right::after {
   transform: translate(0, -50%) rotate(7deg)
 }
-
+*/
 /* bubbles */
+/*
 button::before {
   content: '';
   pointer-events: none;
@@ -120,3 +121,4 @@ button::before {
     transform: translate(0, -66.666%);
   }
 }
+*/

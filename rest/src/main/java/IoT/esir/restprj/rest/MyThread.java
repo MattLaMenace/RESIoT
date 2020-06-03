@@ -108,6 +108,13 @@ public  class MyThread extends Thread {
 				allumage(led2, this.vitesse);
 		}
 	}
+	
+	public void allumer() throws InterruptedException, KNXException {
+		pc.write(led1, true);
+		pc.write(led2, true);
+		pc.write(led3, true);
+		pc.write(led4, true);
+	}
 
 	public void eteindre() throws KNXTimeoutException, KNXLinkClosedException, KNXFormatException {
 		pc.write(led1, false);
