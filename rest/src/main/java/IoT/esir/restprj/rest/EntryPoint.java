@@ -23,7 +23,7 @@ public class EntryPoint {
 	@GET
 	@Path("xml")
 	@Produces(MediaType.TEXT_HTML)
-	public File xmlFile() throws FileNotFoundException, ResolutionException, KNXException, InterruptedException,KNXException, InterruptedException {
+	public static File xmlFile() throws FileNotFoundException, ResolutionException, KNXException, InterruptedException,KNXException, InterruptedException {
 		File doc = new File("page.html");
 		thread = new MyThread(800);
 		return doc;
@@ -32,7 +32,7 @@ public class EntryPoint {
 	@GET
 	@Path("/chenillardv1")
 	@Produces(MediaType.TEXT_HTML)
-	public void chenillardV1() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
+	public static void chenillardV1() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
 		thread.myStop();
 		thread = new MyThread(800);
 		thread.chenillardV1();
@@ -41,7 +41,7 @@ public class EntryPoint {
 	@GET
 	@Path("/chenillardv2")
 	@Produces(MediaType.TEXT_HTML)
-	public void chenillardV2() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
+	public static void chenillardV2() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
 		thread.myStop();
 		thread = new MyThread(800);
 		thread.chenillardV2();
@@ -50,7 +50,7 @@ public class EntryPoint {
 	@GET
 	@Path("/chenillardv3")
 	@Produces(MediaType.TEXT_HTML)
-	public void chenillardV3() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
+	public static void chenillardV3() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
 		thread.myStop();
 		thread = new MyThread(800);
 		thread.chenillardV3();
@@ -59,7 +59,7 @@ public class EntryPoint {
 	@GET
 	@Path("/chenillardv4")
 	@Produces(MediaType.TEXT_HTML)
-	public void chenillardV4() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
+	public static void chenillardV4() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
 		thread.myStop();
 		thread = new MyThread(800);
 		thread.chenillardV4();
@@ -70,32 +70,42 @@ public class EntryPoint {
 	@GET
 	@Path("/eteindre")
 	@Produces(MediaType.TEXT_HTML)
-	public void eteindre() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
+	public static void eteindre() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
 		thread.myStop();
 		thread.eteindre();
 	}
 	
 	@GET
+	@Path("/allumer")
+	@Produces(MediaType.TEXT_HTML)
+	public void allumer() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
+		thread.myStop();
+		thread.allumer();
+	}
+	
+	@GET
 	@Path("/vitesseUP")
 	@Produces(MediaType.TEXT_HTML)
-	public void vitesseUP() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
+	public static void vitesseUP() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
 		thread.accelerer();
 	}
 	
 	@GET
 	@Path("/vitesseDOWN")
 	@Produces(MediaType.TEXT_HTML)
-	public void vitesseDOWN() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
+	public static void vitesseDOWN() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
 		thread.decelerer();
 	}
 	
 	@GET
 	@Path("/logOut")
 	@Produces(MediaType.TEXT_HTML)
-	public void logOut() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
+	public static File logOut() throws FileNotFoundException, ResolutionException, KNXException,InterruptedException, KNXException, InterruptedException {
 		thread.myStop();
 		thread.close();
-		xmlFile();
+		File logout = new File("page2.html");
+		return logout;
+
 	}
 	
 	

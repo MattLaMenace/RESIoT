@@ -36,61 +36,6 @@ public class Connection {
 		pc = new ProcessCommunicatorImpl(netLinkIp);
 		
 		
-		
-		this.netLinkIp.addLinkListener(new NetworkLinkListener() {
-			
-			public void confirmation(FrameEvent arg0) {
-			}
-
-			public void indication(FrameEvent arg0)  {
-
-				String dest = ((CEMILData) arg0.getFrame()).getDestination().toString();
-
-				if (dest.equals("1/0/1")) {
-					
-					try {
-						m.myStop();
-						m=new MyThread(800);
-						m.chenillardV1();
-					} catch (KNXException | InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-
-				if (dest.equals("1/0/2")) {
-					
-					try {
-						m.myStop();
-						m=new MyThread(800);
-						m.chenillardV2();
-					} catch (KNXException | InterruptedException e) {
-						e.printStackTrace();
-					}
-
-
-				}
-				
-				if (dest.equals("1/0/3")) {
-					
-					try {
-						m.myStop();
-						m.eteindre();
-					} catch (KNXException e) {
-						e.printStackTrace();
-					}
-
-				}
-				
-				if (dest.equals("1/0/4")) {
-					
-					m.accelerer();
-				}
-			}
-
-			public void linkClosed(CloseEvent arg0) {
-			}
-
-		});
 
 	}
 
